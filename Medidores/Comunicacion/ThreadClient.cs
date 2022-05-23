@@ -12,7 +12,9 @@ namespace Medidores.Comunicacion
     class ThreadClient
     {
         //Singleton
-        private static IMedidoresDAL medidoresDAL = MedidoresDALText.GetInstancia();
+        private static IMedidoresDAL medidoresDAL = new MedidorDALText();
+        private static ILecturaDAL lecturasDAL = LecturaDALText.GetInstancia();
+
         private ClienteCom clienteCom;
 
         public ThreadClient(ClienteCom clienteCom)
@@ -22,21 +24,29 @@ namespace Medidores.Comunicacion
 
         public void Ejecutar()
         {
-            clienteCom.Escribir("Ingrese Nombre: ");
-            string nombre = clienteCom.Leer();
+            List<Medidor> medidores = medidoresDAL.ObtenerMedidores();
+            clienteCom.Escribir("Ingrese Codigo de Medidor: ");
+            string idMedidor = clienteCom.Leer();
+
+            if (medidores.Find(med => med.Codigo == int.Parse(idMedidor)) == null)
+            {
+                clienteCom.Escribir("ERROR");
+                clienteCom.Desconectar();
+            }
+
             clienteCom.Escribir("Ingrese Kilowatt por Hora (kWh): ");
             string kWh = clienteCom.Leer();
 
             Medidor medidor = new Medidor()
             {
-                Nombre = nombre,
+                Codigo = int.Parse(idMedidor),
                 KWh = Convert.ToUInt32(kWh),
                 FechaUnix = DateTimeOffset.Now.ToUnixTimeSeconds()
         };
             //ThreadSafe
-            lock (medidoresDAL)
+            lock (lecturasDAL)
             {
-                medidoresDAL.IngresarLectura(medidor);
+                lecturasDAL.IngresarLectura(medidor);
             }
 
             clienteCom.Desconectar();

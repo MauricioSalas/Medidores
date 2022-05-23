@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace MedidoresModel.DAL
 {
-    public class MedidoresDALText : IMedidoresDAL
+    public class LecturaDALText : ILecturaDAL
     {
         //Singleton
-        private MedidoresDALText()
+        private LecturaDALText()
         {
 
         }
 
-        private static MedidoresDALText instancia;
+        private static LecturaDALText instancia;
 
-        public static IMedidoresDAL GetInstancia()
+        public static ILecturaDAL GetInstancia()
         {
             if(instancia == null)
             {
-                instancia = new MedidoresDALText();
+                instancia = new LecturaDALText();
             }
             return instancia;
         }
@@ -35,7 +35,7 @@ namespace MedidoresModel.DAL
             {
                 using(StreamWriter writer = new StreamWriter(ruta, true))
                 {
-                    writer.WriteLine(medidor.Nombre + "|" + medidor.KWh + "|" + medidor.FechaUnix);
+                    writer.WriteLine(medidor.Codigo + "|" + medidor.KWh + "|" + medidor.FechaUnix);
                     writer.Flush();
                 }
             }
@@ -43,11 +43,6 @@ namespace MedidoresModel.DAL
             {
                 Console.WriteLine("Error: {0}", ex.Message);
             }
-        }
-
-        public List<Medidor> ObtenerMedidores()
-        {
-            throw new NotImplementedException();
         }
 
         public List<Medidor> ObtenerLecturas()
@@ -64,7 +59,7 @@ namespace MedidoresModel.DAL
                         string[] textoArr = texto.Trim().Split('|');
                         Medidor med = new Medidor()
                         {
-                            Nombre = textoArr[0],
+                            Codigo = int.Parse(textoArr[0]),
                             KWh = Convert.ToUInt32(textoArr[1]),
                             FechaUnix = Convert.ToUInt32(textoArr[2])
                         };

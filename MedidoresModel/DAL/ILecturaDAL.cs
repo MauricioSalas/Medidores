@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace MedidoresModel.DAL
 {
-    public interface IMedidoresDAL
+    public interface ILecturaDAL
     {
-        List<Medidor> ObtenerMedidores();
+        void IngresarLectura(Medidor medidor);
+        List<Medidor> ObtenerLecturas();
     }
 }

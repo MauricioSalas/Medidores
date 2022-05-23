@@ -8,17 +8,17 @@ namespace MedidoresModel
 {
     public class Medidor
     {
-        private string nombre;
+        private int codigo;
         private uint kWh;
         private double fechaUnix;
 
-        public string Nombre { get => nombre; set => nombre = value; }
+        public int Codigo { get => codigo; set => codigo = value; }
         public uint KWh { get => kWh; set => kWh = value; }
         public double FechaUnix { get => fechaUnix; set => fechaUnix = value; }
 
         public override string ToString()
         {
-            return "\n" + nombre + " " + kWh + "\n" + FechaUnix + "\n";
+            return "\n" + Codigo + " " + kWh + "\n" + FechaUnix + "\n";
         }
     }
 }
