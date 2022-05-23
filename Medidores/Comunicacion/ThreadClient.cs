@@ -41,8 +41,8 @@ namespace Medidores.Comunicacion
             {
                 Codigo = int.Parse(idMedidor),
                 KWh = Convert.ToUInt32(kWh),
-                FechaUnix = DateTimeOffset.Now.ToUnixTimeSeconds()
-        };
+                FechaUnix = DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")
+            };
             //ThreadSafe
             lock (lecturasDAL)
             {

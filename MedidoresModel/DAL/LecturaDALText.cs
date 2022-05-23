@@ -61,7 +61,7 @@ namespace MedidoresModel.DAL
                         {
                             Codigo = int.Parse(textoArr[0]),
                             KWh = Convert.ToUInt32(textoArr[1]),
-                            FechaUnix = Convert.ToUInt32(textoArr[2])
+                            FechaUnix = textoArr[2]
                         };
                         datos.Add(med);
                     }

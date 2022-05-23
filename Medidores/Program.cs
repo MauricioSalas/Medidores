@@ -41,15 +41,6 @@ namespace Medidores
                     break;
             }
             return continuar;
-            /*Console.WriteLine("Ingrese medidor: \n");
-            string valorMedidor = Console.ReadLine().Trim();
-            Console.WriteLine("Ingrese valor de consumo: \n");
-            string valorConsumoMedidor = Console.ReadLine().Trim();
-            Console.WriteLine("Medidor: {0} | Consumo: {1} | Fecha: {2} | Timestamp: {3}", valorMedidor, valorConsumoMedidor, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), DateTimeOffset.Now.ToUnixTimeSeconds());
-            //2019-02-03 03:04:00
-            //YYYY-MM-DD HH:MM:SS
-            //Formato a Guardar -> Medidor|Fecha|ValorConsumo
-            Console.ReadKey();*/
         }
 
     static void IngresarLectura()
@@ -74,7 +65,7 @@ namespace Medidores
             {
                 Codigo = int.Parse(idMedidor),
                 KWh = kWh,
-                FechaUnix = DateTimeOffset.Now.ToUnixTimeSeconds()
+                FechaUnix = DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")
             };
 
             lock (lecturasDAL)

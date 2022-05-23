@@ -10,11 +10,11 @@ namespace MedidoresModel
     {
         private int codigo;
         private uint kWh;
-        private double fechaUnix;
+        private string fechaUnix;
 
         public int Codigo { get => codigo; set => codigo = value; }
         public uint KWh { get => kWh; set => kWh = value; }
-        public double FechaUnix { get => fechaUnix; set => fechaUnix = value; }
+        public string FechaUnix { get => fechaUnix; set => fechaUnix = value; }
 
         public override string ToString()
         {
