@@ -3,13 +3,14 @@ using MedidoresModel.DAL;
 using SocketUtils;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Medidores.Comunicacion
 {
-    class ThreadClient
+    public class ThreadClient
     {
         //Singleton
         private static IMedidoresDAL medidoresDAL = new MedidorDALText();
@@ -24,6 +25,9 @@ namespace Medidores.Comunicacion
 
         public void Ejecutar()
         {
+            int puerto = Convert.ToInt32(ConfigurationManager.AppSettings["puerto"]);
+            Console.WriteLine("Cliente iniciado en el puerto: {0}", puerto);
+
             List<Medidor> medidores = medidoresDAL.ObtenerMedidores();
             clienteCom.Escribir("Ingrese Codigo de Medidor: ");
             string idMedidor = clienteCom.Leer();

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedidoresModel", "Medidores
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketUtils", "SocketUtils\SocketUtils.csproj", "{19090038-A1A8-4080-BADB-3FD66228FF08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimuladorMedidor", "SimuladorMedidor\SimuladorMedidor.csproj", "{0552C1F4-1CB2-4A23-B041-7F6740B18BAD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{19090038-A1A8-4080-BADB-3FD66228FF08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19090038-A1A8-4080-BADB-3FD66228FF08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19090038-A1A8-4080-BADB-3FD66228FF08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0552C1F4-1CB2-4A23-B041-7F6740B18BAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0552C1F4-1CB2-4A23-B041-7F6740B18BAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0552C1F4-1CB2-4A23-B041-7F6740B18BAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0552C1F4-1CB2-4A23-B041-7F6740B18BAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
